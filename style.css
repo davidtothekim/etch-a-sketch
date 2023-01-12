@@ -1,0 +1,245 @@
+/* Style Preset  */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-family: 'Inter', sans-serif;
+	font-weight: 300;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Body */
+
+body {
+	background: #e1e7e5;
+}
+
+/* Header */
+
+.title {
+	font-size: 3.75rem;
+	font-weight: 400;
+	text-align: center;
+	margin-top: 98px;
+}
+
+/* Main */
+
+main {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	max-width: 1200px;
+	gap: 50px;
+	margin: 50px auto;
+}
+
+/* ToolBar */
+
+.toolBar {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 210px;
+	gap: 40px;
+}
+
+/* colorPicker */
+
+#colorPicker {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	overflow: hidden;
+	padding: 0;
+}
+
+input[type=color]::-webkit-color-swatch {
+	border: none;
+	border-radius: 50%;
+	padding: 0;
+}
+
+input[type=color]::-webkit-color-swatch-wrapper {
+	border: none;
+	border-radius: 50%;
+	padding: 0;
+}
+
+/* tools */
+
+.tools {
+	display: grid;
+	grid-template-columns: repeat(2, 100px);
+	grid-template-rows: repeat(2, 70px);
+	gap: 23px 25px;
+	align-items: center;
+	justify-items: center;
+}
+
+.tools > div {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+}
+
+.tools > *:hover {
+	background: #dedcdc;
+	border-radius: 20px;
+}
+
+/* Buttons */
+
+.bttnClear {
+	width: 100%;
+	border: 3px solid black;
+	border-radius: 10px;
+	background: transparent;
+	font-size: 1.875rem;
+	padding: 5px;
+}
+
+/* grid */
+
+.grid {
+	display: grid;
+	width: 750px;
+	height: 750px;
+	background: white;
+	border: 3px solid black;
+}
+
+.gridSize {
+	font-size: 1.875rem;
+	text-align: center;
+}
+
+/* Display classes */
+
+.hidden {
+	display: none;
+}
+
+.selected {
+	background: #dedcdc;
+}

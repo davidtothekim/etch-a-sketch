@@ -6,12 +6,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
-    <script src="/app.js"></script>
-    <style href="style.css"></style>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Kanit:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
+    <header>
+        <h1 class="title">Etch-a-sketch</h1>
+    </header>
+
+    <main>
+        <section class="toolBar">
+            <input type="color" id="colorPicker" value="#ff0000">
+
+            <div class="tools">
+
+                <div class="toolPencil">
+                    <img src="./Assets/Pencil.png" alt="Pencil Tool">
+                </div>
+
+                <div class="toolEraser">
+                    <img src="./Assets/Eraser.png" alt="Eraser Tool">
+                </div>
+
+                <div class="toolPaint">
+                    <img src="./Assets/Paint Bucket.png" alt="Paint Bucket Tool">
+                </div>
+
+                <div class="toolGrid">
+                    <img src="./Assets/Grid.png" alt="Grid Tool">
+                </div>
+
+            </div>
+
+            <div class="gridSizeContainer hidden">
+                <div class="gridSize"></div>
+                <input type="range" id="gridSizeSlider" min="16" max="64" value="16">
+            </div>
+
+            <button class="bttnClear">Clear</button>
+
+        </section>
+
+        <section class="grid"></section>
+
+
+
+
+    </main>
+
 </body>
+
+<script src="./app.js"></script>
 
 </html>
