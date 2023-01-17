@@ -204,8 +204,9 @@ input[type=color]::-webkit-color-swatch-wrapper {
 }
 
 .tools > *:hover {
-	background: #dedcdc;
+	/* background: #dedcdc; */
 	border-radius: 20px;
+	transform: scale(1.10);
 }
 
 /* Buttons */
@@ -242,4 +243,10 @@ input[type=color]::-webkit-color-swatch-wrapper {
 
 .selected {
 	background: #dedcdc;
+	border-radius: 20px;
+	transition: transform 1s ease-in-out;
+}
+
+.gridCell {
+	border: 0.2px solid black;
 }
