@@ -17,10 +17,10 @@ clearBttn.onclick = (e) => clearGrid();
 colorPicker.oninput = (e) => setSelectedColor(e.target.value);
 gridSizeSlider.oninput = (e) => drawGrid(e.target.value);
 gridTool.onclick = () => toggleGridSlider();
-eraserTool.onclick = (e) => selectTool(e.target.parentElement, 'eraser');
-pencilTool.onclick = (e) => selectTool(e.target.parentElement, 'pencil');
-paintTool.onclick = (e) => selectTool(e.target.parentElement, 'paint');
-gridTool.onclick = (e) => selectTool(e.target.parentElement, 'grid');
+// eraserTool.onclick = (e) => selectTool(e.target.parentElement, 'eraser');
+// pencilTool.onclick = (e) => selectTool(e.target.parentElement, 'pencil');
+// paintTool.onclick = (e) => selectTool(e.target.parentElement, 'paint');
+// gridTool.onclick = (e) => selectTool(e.target.parentElement, 'grid');
 
 // Variables
 
@@ -28,7 +28,9 @@ let selectedColour = '#ff0000';
 
 let selectedTool = '';
 
-let gridDimension = 2;
+let tools = [ eraserTool, pencilTool, paintTool, gridTool ];
+
+let gridDimension = 16;
 let mouseClicked = false;
 document.body.onmousedown = () => (mouseClicked = true);
 document.body.onmouseup = () => (mouseClicked = false);
@@ -51,6 +53,8 @@ function setSelectedColor(colour) {
 // drawGrid
 
 function drawGrid(gridDimension) {
+	gridBox.innerHTML = '';
+
 	updateGridSize();
 	let area = Math.pow(gridDimension, 2);
 
@@ -97,18 +101,44 @@ function clearGrid() {
 // Toggle Grid Resizer
 
 function toggleGridSlider() {
-	console.log(gridSizeContainer.style.display);
 	gridSizeContainer.classList.toggle('hidden');
 }
 
 // Select tool
 
-function selectTool(element, tool) {
-	if (tool === 'grid') toggleGridSlider();
+for (let tool of tools) {
+	tool.addEventListener('click', selectTool);
 
-	selectedTool != tool ? (selectedTool = tool) : (selectedTool = '');
+	let type = tool.classList[0].split('tool')[1];
+}
 
-	element.classList.toggle('selected');
+function selectTool(event) {
+	let toolDiv = event.currentTarget;
+	let toolName = toolDiv.classList[0].split('tool')[1].toLowerCase();
+
+	if (!selectedTool) {
+		toolDiv.classList.add('selected');
+		selectedTool = toolName;
+		console.log(selectedTool);
+		return;
+	}
+
+	if (selectedTool === toolName) {
+		selectedTool = '';
+		toolDiv.classList.remove('selected');
+		console.log(selectedTool);
+		return;
+	}
+
+	if (selectedTool !== toolDiv) {
+		for (let tool of tools) {
+			tool.classList.remove('selected');
+		}
+
+		selectedTool = toolName;
+		toolDiv.classList.add('selected');
+		console.log(selectedTool);
+	}
 }
 
 // Paint grid
@@ -117,43 +147,12 @@ function paintGrid(colour) {
 	let gridCells = document.querySelectorAll('.gridCell');
 
 	for (let element of gridCells) {
-		let example = getComputedStyle(element, null);
-		let bColor = example.getPropertyValue('background-color');
-		console.log(bColor);
-		// if (!element.style.backgroundColour) {
-		// 	console.log(element.style.backgroundColor);
-		// 	console.log(element.style.classList);
-		// 	console.log('null');
-		// } else {
-		// 	console.log(element.style.backgroundColor);
-		// }
+		element.style.backgroundColor = colour;
 	}
 }
 
-// RGBToHex(element.style.backgroundColor) !== colour
-
-// Convert rgb to hex
-
-function RGBToHex(rgb) {
-	// Choose correct separator
-	let sep = rgb.indexOf(',') > -1 ? ',' : ' ';
-	// Turn "rgb(r,g,b)" into [r,g,b]
-	rgb = rgb.substr(4).split(')')[0].split(sep);
-
-	let r = (+rgb[0]).toString(16),
-		g = (+rgb[1]).toString(16),
-		b = (+rgb[2]).toString(16);
-
-	if (r.length == 1) r = '0' + r;
-	if (g.length == 1) g = '0' + g;
-	if (b.length == 1) b = '0' + b;
-
-	let hex = '#' + r + g + b;
-
-	return '#' + r + g + b;
-}
-
-RGBToHex('rgb(60, 52, 52)');
-// drawGrid();
-
 drawGrid(gridDimension);
+
+function test(str) {
+	console.log(str);
+}

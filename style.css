@@ -249,4 +249,5 @@ input[type=color]::-webkit-color-swatch-wrapper {
 
 .gridCell {
 	border: 0.2px solid black;
+	background-color: white;
 }
