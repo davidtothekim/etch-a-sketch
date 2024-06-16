@@ -63,5 +63,14 @@ For future iterations, here are some other features that could be introduced to 
 To run the project in your local environment, follow these steps:
 
 1. Clone the repository to your local machine.
-2. Run `npm install` or `yarn` in the project director to install the required dependencies.
+2. Use the `live server` extension on vs code or open the index.html file in your browser to view the app. 
+
+## 🍿 Preview
+
+https://github.com/davidtothekim/etch-a-sketch/assets/81598858/c4757a22-d3f2-4ea5-9409-4a6f641d475c
+
+
+
+
+
 
